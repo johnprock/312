@@ -21,16 +21,51 @@ run this file as : gcc filename.c -o executableName
 
 #include <stdio.h> //This is useful to do i/o to test the code 
 
+// actuators
+unsigned int bell;
+unsigned int door_lock_actuator;
+unsigned int brake_actuator;
+
+// sensors
+unsigned int driver_seat_belt_fastened;
+unsigned int engine_running;
 unsigned int driver_on_seat;
 unsigned int doors_closed;
-unsigned int bell;
+unsigned int key_in_car;
+unsigned int door_lock_lever;
+unsigned int brake_pedal;
+unsigned int car_moving;
 
 
-*/
+
 void read_inputs_from_ip_if(){
+  // read input from stdin 
+  // input format is a sequence of '0' or '1' characters
+  char c;
+  c = getchar();
+  driver_seat_belt_fastened = (unsigned int) c;
+  
+  c = getchar();
+  engine_running = (unsigned int) c;
 
-	//place your input code here
-	//to read the current state of the available sensors
+  c = getchar();
+  driver_on_seat = (unsigned int) c;
+
+  c = getchar();
+  doors_closed = (unsigned int) c;
+
+  c = getchar();
+  key_in_car = (unsigned int) c;
+
+  c = getchar();
+  door_lock_lever = (unsigned int) c;
+
+  c = getchar();
+  brake_pedal = (unsigned int) c;
+
+  c = getchar();
+  car_moving = (unsigned int) c;
+
 
 }
 
@@ -44,15 +79,19 @@ void write_output_to_op_if(){
 //The code segment which implements the decision logic
 void control_action(){
 
-	/*
-	The code given here sounds the bell when driver is on seat 
-	AND hasn't closed the doors. (Requirement-2)
- 	Replace this code segment with your own code to do problems 3 and 4.
-	*/
+  // bell logic
+  if(engine_running && !driver_seat_belt_fastened) {
+    bell = 1;
+  }
+  else if(engine_running && !doors_closed) {
+    bell = 1;
+  }
+  else bell = 0;
 
-	if (driver_on_seat && !doors_closed)
-		bell = 1;
-	else bell = 0;
+  // door logic
+
+  // brake logic
+        
 
 }
 
