@@ -1,0 +1,9 @@
+This program was executed at time : 769 secs
+The sizes of different data type for this machine and compiler are -
+double data type is 4 bytes or 32 bits long
+double data type is 8 bytes or 64 bits long
+double data type is 8 bytes or 64 bits long
+double data type is 8 bytes or 64 bits long
+double data type is 1 bytes or 8 bits long
+double data type is 4 bytes or 32 bits long
+double data type is 16 bytes or 128 bits long
