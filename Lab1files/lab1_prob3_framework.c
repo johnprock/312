@@ -37,42 +37,57 @@ unsigned int brake_pedal;
 unsigned int car_moving;
 
 
+int convert(char c) {
+  if(c == '1'){
+    return 1;
+  }
+  else return 0;
+}
 
 void read_inputs_from_ip_if(){
   // read input from stdin 
   // input format is a sequence of '0' or '1' characters
   char c;
   c = getchar();
-  driver_seat_belt_fastened = (unsigned int) c;
+  driver_seat_belt_fastened = convert(c);
   
   c = getchar();
-  engine_running = (unsigned int) c;
+  engine_running = convert(c);
 
   c = getchar();
-  driver_on_seat = (unsigned int) c;
+  driver_on_seat = convert(c);
 
   c = getchar();
-  doors_closed = (unsigned int) c;
+  doors_closed = convert(c);
 
   c = getchar();
-  key_in_car = (unsigned int) c;
+  key_in_car = convert(c);
 
   c = getchar();
-  door_lock_lever = (unsigned int) c;
+  door_lock_lever = convert(c);
 
   c = getchar();
-  brake_pedal = (unsigned int) c;
+  brake_pedal = convert(c);
 
   c = getchar();
-  car_moving = (unsigned int) c;
+  car_moving = convert(c);
 
 
 }
 
 void write_output_to_op_if(){
+  // sensor values printed for debugging purposes
+  printf("driver_seat_belt_fastened: %d\n", driver_seat_belt_fastened);
+  printf("engine_running: %d\n", engine_running);
+  printf("driver_on_seat: %d\n", driver_on_seat);
+  printf("doors_closed: %d\n", doors_closed);
+  printf("key_in_car: %d\n", key_in_car);
+  printf("door_lock_lever: %d\n", door_lock_lever);
+  printf("brake_pedal: %d\n", brake_pedal);
+  printf("car_moving: %d\n", car_moving);
 
-	//place your output code here
-    //to display/print the state of the 3 actuators (DLA/BELL/BA)
+  // actuators
+  printf("bell: %d\ndoor_lock_actuator: %d\nbrake_actuator: %d\n", bell, door_lock_actuator, brake_actuator);
 }
 
 
@@ -89,9 +104,19 @@ void control_action(){
   else bell = 0;
 
   // door logic
+  if (!driver_on_seat && key_in_car) {
+    door_lock_actuator = 0;
+  }
+  else if(driver_on_seat && door_lock_lever) {
+    door_lock_actuator = 1;
+  }
+  else door_lock_actuator = 0;
 
   // brake logic
-        
+  if(brake_pedal && car_moving) {
+    brake_actuator = 1; 
+  }
+  else brake_actuator = 0;
 
 }
 
