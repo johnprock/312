@@ -22,7 +22,7 @@ int main()
 	int int_var; //Tag 1
 
 	struct timeval this_instant;
-	double time_stamp;
+	long int time_stamp;
 	
 
 	FILE *my_file_pointer;
