@@ -1,0 +1,11 @@
+driver_seat_belt_fastened: 1
+engine_running: 0
+driver_on_seat: 1
+doors_closed: 0
+key_in_car: 1
+door_lock_lever: 0
+brake_pedal: 1
+car_moving: 0
+bell: 0
+door_lock_actuator: 0
+brake_actuator: 0
