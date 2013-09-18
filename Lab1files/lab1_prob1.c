@@ -16,6 +16,7 @@ To run the executable named "lab1_prob1", type the following-
 
 #include <stdio.h> //For input/output
 #include <sys/time.h> //For gettimeofday() function
+#include <cstdlib>
 
 int main()
 {

@@ -3,6 +3,7 @@
 
 #include <stdio.h> //For input/output
 #include <sys/time.h> //For gettimeofday() function
+#include <cstdlib>
 
 int main()
 {
