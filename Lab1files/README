@@ -1,0 +1,4 @@
+AUTHOR: Patrick Rock
+
+The written assignment can be found in 312_lab1.pdf. The circuit diagram was made in logisim and is included as a .png. All code was compiled using g++.
+p1out and p5out contain the timing outputs for problem 1 and 5 respectively.
