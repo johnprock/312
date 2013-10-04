@@ -33,7 +33,7 @@ inline void read_inputs_from_ip_if(){
 
 //For output interface implementation
 inline void write_output_to_op_if(){
-   printf("Output: %d", output);
+   printf("Output: %d\n", output);
 }
 
 
